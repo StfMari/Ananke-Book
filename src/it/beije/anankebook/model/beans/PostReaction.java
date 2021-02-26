@@ -31,25 +31,49 @@ public class PostReaction {
 	public Integer getId() {
 		return id;
 	}
+	
+	
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+	
 	public Integer getPostId() {
 		return postId;
 	}
+	
+	
 	public void setPostId(Integer postId) {
 		this.postId = postId;
 	}
+	
+	
 	public Integer getUserId() {
 		return userId;
 	}
+	
+	
 	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
+	
+	
 	public ReactionType getReactionType() {
 		return reactionType;
 	}
+	
+	
 	public void setReactionType(ReactionType reactionType) {
 		this.reactionType = reactionType;
 	}
+
+
+	@Override
+	public String toString() {
+		return "PostReaction [id=" + id + ", postId=" + postId + ", userId=" + userId + ", reactionType=" + reactionType
+				+ "]";
+	}
+
+	
 }
+

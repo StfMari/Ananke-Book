@@ -80,4 +80,13 @@ public class Comment {
 	public void setCommentDate(LocalDate commentDate) {
 		this.commentDate = commentDate;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Comment [id=" + id + ", postId=" + postId + ", userId=" + userId + ", content=" + content
+				+ ", commentDate=" + commentDate + "]";
+	}
+	
+	
 }

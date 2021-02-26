@@ -64,5 +64,12 @@ public class Friendship {
 	public void setUserReceiverId(Integer userReceiverId) {
 		this.userReceiverId = userReceiverId;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Friendship [id=" + id + ", status=" + status + ", userSenderId=" + userSenderId + ", userReceiverId="
+				+ userReceiverId + "]";
+	}
 	
 }
