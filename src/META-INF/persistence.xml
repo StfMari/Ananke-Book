@@ -11,7 +11,7 @@
 	
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://social2.cvzu4xrxvkdz.eu-south-1.rds.amazonaws.com:3306/ananke?serverTimezone=CET"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://social2.cvzu4xrxvkdz.eu-south-1.rds.amazonaws.com:3306/sys?serverTimezone=CET"/>
 			<property name="javax.persistence.jdbc.user" value="admin"/>
 			<property name="javax.persistence.jdbc.password" value="s=c!$l2kg6r2o8!"/>
 		</properties>
