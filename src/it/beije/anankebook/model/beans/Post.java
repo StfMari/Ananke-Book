@@ -3,42 +3,90 @@ package it.beije.anankebook.model.beans;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="post")
 public class Post {
-Integer postId;
-Integer userId;
-String postTitle;
-String postContent;
-LocalDate postDate;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
+	Integer id;
+	
+	@Column(name="user_id")
+	Integer userId;
+	
+	@Column(name="title")
+	String title;
+	
+	@Column(name="content")
+	String content;
+	
+	@Column(name="date")
+	LocalDate date;
 
-public Integer getPostId() {
-	return postId;
-}
-public void setPostId(Integer postId) {
-	this.postId = postId;
-}
-public Integer getUserId() {
-	return userId;
-}
-public void setUserId(Integer userId) {
-	this.userId = userId;
-}
-public String getPostTitle() {
-	return postTitle;
-}
-public void setPostTitle(String postTitle) {
-	this.postTitle = postTitle;
-}
-public String getPostContent() {
-	return postContent;
-}
-public void setPostContent(String postContent) {
-	this.postContent = postContent;
-}
-public LocalDate getPostDate() {
-	return postDate;
-}
-public void setPostDate(LocalDate postDate) {
-	this.postDate = postDate;
-}
+	
+	public Integer getId() {
+		return id;
+	}
 
+	
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	
+	public Integer getUserId() {
+		return userId;
+	}
+
+	
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
+	
+	public String getTitle() {
+		return title;
+	}
+
+	
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	
+	public String getContent() {
+		return content;
+	}
+
+	
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	
+	public LocalDate getDate() {
+		return date;
+	}
+
+	
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Post [id=" + id + ", userId=" + userId + ", title=" + title + ", content=" + content + ", date=" + date
+				+ "]";
+	}
+	
+	
 }
