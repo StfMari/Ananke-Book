@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import it.beije.anankebook.model.beans.User;
 import it.beije.anankebook.servicies.UserService;
 
+import it.beije.anankebook.util.Views;
+import it.beije.anankebook.util.Mappings;
+
 @Controller
 public class UserController {
 
@@ -22,10 +25,10 @@ public class UserController {
 	
 	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
 	public String getIndex() {		
-		return "indexSocial";
+		return Views.INDEX;
 	}
 	
-	@RequestMapping(value = "/logIn", method = RequestMethod.POST)
+	@RequestMapping(value = "/" + Mappings.LOGIN, method = RequestMethod.POST)
 	public String login(@RequestParam String email, @RequestParam String password, Model model, HttpSession session) {
 		User user = userService.findByEmailAndPassword(email, password);
 		if(user != null) {
@@ -34,25 +37,25 @@ public class UserController {
 				session.setAttribute("userBean", user);
 			}	
 			//login
-			return "homePageSocial";
+			return Views.HOMEPAGE;
 		}
 		//errore
-		return "logInSocial";
+		return Views.LOGIN;
 	}
 	
-	@RequestMapping(value = {"/logIn"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/" + Mappings.LOGIN}, method = RequestMethod.GET)
 	public String login() {		
-		return "logInSocial";
+		return Views.LOGIN;
 	}
 	
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	@RequestMapping(value = "/" + Mappings.REGISTER, method = RequestMethod.GET)
 	public String register() {		
-		return "registerSocial";
+		return Views.REGISTER;
 	}
 	
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	@RequestMapping(value = "/" + Mappings.REGISTER, method = RequestMethod.POST)
 	public String register(User user) {
 		userService.save(user);
-		return"logInSocial";
+		return Views.LOGIN;
 	}
 }

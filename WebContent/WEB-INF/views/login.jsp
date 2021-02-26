@@ -12,7 +12,7 @@
 		<p>Inserisci email e password</p>
 	</div>
 	
-	<form action="./homePage" method = "post">
+	<form action="./homepage" method = "post">
   		<label for="email">Email:</label><br>
   		<input type="text" id="email" name="email" required><br><br>
   		<label for="password">Password:</label><br>
