@@ -7,6 +7,6 @@
 <title>${user.username} HomePage</title>
 </head>
 <body>
-
+	<%@ include file="util/topnav.jsp"%>
 </body>
 </html>

@@ -2,31 +2,54 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Registration to Ananke-Book</title>
-</head>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Registration to Ananke-Book</title>
+		<style>
+			.title{
+				text-align:center;
+			}
+			.formdiv {
+				margin: auto;
+				text-align:center;
+				position:absolute;
+			}
+			.inputdiv {
+				text-align:center;
+			}
+		</style>
+	</head>
 <body>
+	<%@ include file="util/topnav.jsp"%>
 	<div>
-		<h3>Benvenuto nel form di registrazione</h3>
-		<p>Inserisci i tuoi dati per poterti <br> registrare al nostro sito di e-commerce</p>
+		<h1 id="t" class="title">Welcome</h1>
 	</div>
-	
-	<form action="./register" method = "post">
-		<label for="name">First name:</label><br>
-  		<input type="text" id="name" name="name" ><br>
- 		<label for="surname">Last name:</label><br>
-  		<input type="text" id="surname" name="surname"><br><br>
-  		<label for="username">Username:</label><br>
-  		<input type="text" id="username" name="username"><br><br>
-  		<label for="email">Email:</label><br>
-  		<input type="text" id="email" name="email" required><br><br>
-  		<label for="password">Password:</label><br>
-  		<input type="password" placeholder="Enter Password" id="password" name="password" required><br><br>
-  		<input type="submit" value="REGISTRATI">
-	</form>
-	
-	<p>${message}</p>
-	
-</body>
+	<div class="formdiv">
+		<form action="./register" method = "post">
+			<div class="inputdiv">
+				<label for="name">First name:</label><br>
+		  		<input type="text" id="name" name="name" >
+			</div>
+			<div class="inputdiv">
+	 		<label for="surname">Last name:</label><br>
+	  		<input type="text" id="surname" name="surname">
+	  		</div>
+	  		<div class="inputdiv">
+	  		<label for="username">Username:</label><br>
+	  		<input type="text" id="username" name="username">
+	  		</div>
+	  		<div class="inputdiv">
+	  		<label for="email">Email:</label><br>
+	  		<input type="text" id="email" name="email" required>
+	  		</div>
+	  		<div class="inputdiv">
+	  		<label for="password">Password:</label><br>
+	  		<input type="password" placeholder="Enter Password" id="password" name="password" required>
+	  		</div>
+	  		<input type="submit" value="REGISTRATI">
+		</form>
+		
+		<p>${message}</p>
+	</div>
+	</body>
 </html>
