@@ -1,33 +1,68 @@
 package it.beije.anankebook.model.beans;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="friendship")
 public class Friendship {
-	  Integer idFriendship;
-	   String stateFrienship;
-	   Integer idUserReceiver;
-	   Integer idUserSender;
-	public Integer getIdFriendship() {
-		return idFriendship;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
+	Integer id;
+	
+	@Column(name="status")
+	String status;
+	
+	@Column(name="user1_id")
+	Integer userSenderId;
+	
+	@Column(name="user2_id")
+	Integer userReceiverId;
+	
+	
+	public Integer getId() {
+		return id;
 	}
-	public void setIdFriendship(Integer idFriendship) {
-		this.idFriendship = idFriendship;
+	
+	
+	public void setId(Integer id) {
+		this.id = id;
 	}
-	public String getStateFrienship() {
-		return stateFrienship;
+	
+	
+	public String getStatus() {
+		return status;
 	}
-	public void setStateFrienship(String stateFrienship) {
-		this.stateFrienship = stateFrienship;
+	
+	
+	public void setStatus(String status) {
+		this.status = status;
 	}
-	public Integer getIdUserReceiver() {
-		return idUserReceiver;
+	
+	
+	public Integer getUserSenderId() {
+		return userSenderId;
 	}
-	public void setIdUserReceiver(Integer idUserReceiver) {
-		this.idUserReceiver = idUserReceiver;
+	
+	
+	public void setUserSenderId(Integer userSenderId) {
+		this.userSenderId = userSenderId;
 	}
-	public Integer getIdUserSender() {
-		return idUserSender;
+	
+	
+	public Integer getUserReceiverId() {
+		return userReceiverId;
 	}
-	public void setIdUserSender(Integer idUserSender) {
-		this.idUserSender = idUserSender;
+	
+	
+	public void setUserReceiverId(Integer userReceiverId) {
+		this.userReceiverId = userReceiverId;
 	}
+	
 }
