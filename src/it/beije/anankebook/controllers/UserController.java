@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import it.beije.anankebook.model.beans.User;
+import it.beije.anankebook.servicies.UserService;
 
 @Controller
 public class UserController {
@@ -19,7 +20,7 @@ public class UserController {
 	@Autowired
 	private UserService userService; 
 	
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/anankeBook/logIn", method = RequestMethod.POST)
 	public String login(@RequestParam String email, @RequestParam String password, Model model, HttpSession session) {
 		User user = userService.findByEmailAndPassword(email, password);
 		if(user != null) {
@@ -28,25 +29,25 @@ public class UserController {
 				session.setAttribute("userBean", user);
 			}	
 			//login
-			return "";
+			return "logInSocial";
 		}
 		//errore
 		return "";
 	}
 	
-	@RequestMapping(value = {"/","/login"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/","/anankeBook/logIn"}, method = RequestMethod.GET)
 	public String login() {		
-		return "login";
+		return "logInSocial";
 	}
 	
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	@RequestMapping(value = "/anankeBook/register", method = RequestMethod.GET)
 	public String register() {		
-		return "register";
+		return "registerSocial";
 	}
 	
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	@RequestMapping(value = "/anankeBook/register", method = RequestMethod.POST)
 	public String register(User user) {
 		userService.save(user);
-		return"login";
+		return"logInSocial";
 	}
 }

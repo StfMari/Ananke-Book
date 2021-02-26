@@ -1,4 +1,4 @@
-package it.beije.ananke.repository;
+package it.beije.anankebook.repository;
 
 import java.util.ArrayList;
 import java.util.List;
