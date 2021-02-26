@@ -20,6 +20,11 @@ public class UserController {
 	@Autowired
 	private UserService userService; 
 	
+	@RequestMapping(value = {"/anankeBook"}, method = RequestMethod.GET)
+	public String getIndex() {		
+		return "indexSocial";
+	}
+	
 	@RequestMapping(value = "/anankeBook/logIn", method = RequestMethod.POST)
 	public String login(@RequestParam String email, @RequestParam String password, Model model, HttpSession session) {
 		User user = userService.findByEmailAndPassword(email, password);
@@ -29,13 +34,13 @@ public class UserController {
 				session.setAttribute("userBean", user);
 			}	
 			//login
-			return "logInSocial";
+			return "homePageSocial";
 		}
 		//errore
-		return "";
+		return "logInSocial";
 	}
 	
-	@RequestMapping(value = {"/","/anankeBook/logIn"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/anankeBook/logIn"}, method = RequestMethod.GET)
 	public String login() {		
 		return "logInSocial";
 	}
