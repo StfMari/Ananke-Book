@@ -4,10 +4,8 @@ public enum ReactionType {
 	SCIOC,
 	LIKE,
 	WOW,
-	STICAZ,
 	LOVE,
 	BAD,
 	ANGRY,
-	CLAP,
-	GRRR
+	CLAP
 }
