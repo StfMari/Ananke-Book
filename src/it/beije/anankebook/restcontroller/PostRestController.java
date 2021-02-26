@@ -7,9 +7,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.beije.anankebook.repository.PostRepository;
+import it.beije.anankebook.servicies.PostService;
 import it.beije.anankebook.model.beans.Post;
 import it.beije.anankebook.model.beans.User;
 
@@ -33,9 +36,17 @@ public class PostRestController {
 	public List<Post> refreshFeed() {
 		System.out.println("Loading feed...");
 		List<Post> posts = postRepository.findAll();
-		Collections.sort(posts, (p1, p2) -> (p1.getDate().compareTo(p2.getDate())));
+		// aggiornare poi con una query che fa "order by date"
+		Collections.sort(posts, (p1, p2) -> (p2.getId().compareTo(p1.getId())));
 		System.out.println("Here comes the posts: " + posts);
 		return posts;
+	}
+	
+	@PutMapping("/publishpost") 
+	public Post publishPost(@RequestBody Post post) {
+		System.out.println("Uploading new post...");
+		postService.save(post);
+		return post;
 	}
 	
 	

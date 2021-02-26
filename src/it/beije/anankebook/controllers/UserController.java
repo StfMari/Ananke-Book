@@ -20,12 +20,12 @@ public class UserController {
 	@Autowired
 	private UserService userService; 
 	
-	@RequestMapping(value = {"/anankeBook"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
 	public String getIndex() {		
 		return "indexSocial";
 	}
 	
-	@RequestMapping(value = "/anankeBook/logIn", method = RequestMethod.POST)
+	@RequestMapping(value = "/logIn", method = RequestMethod.POST)
 	public String login(@RequestParam String email, @RequestParam String password, Model model, HttpSession session) {
 		User user = userService.findByEmailAndPassword(email, password);
 		if(user != null) {
@@ -40,17 +40,17 @@ public class UserController {
 		return "logInSocial";
 	}
 	
-	@RequestMapping(value = {"/anankeBook/logIn"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/logIn"}, method = RequestMethod.GET)
 	public String login() {		
 		return "logInSocial";
 	}
 	
-	@RequestMapping(value = "/anankeBook/register", method = RequestMethod.GET)
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String register() {		
 		return "registerSocial";
 	}
 	
-	@RequestMapping(value = "/anankeBook/register", method = RequestMethod.POST)
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String register(User user) {
 		userService.save(user);
 		return"logInSocial";

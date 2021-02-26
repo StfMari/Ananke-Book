@@ -9,6 +9,7 @@ import it.beije.anankebook.model.beans.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer>{
+	
 	public User findByEmail(String email);
 
 	public User findByEmailAndPassword(String email, String password);

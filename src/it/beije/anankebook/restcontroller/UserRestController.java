@@ -21,7 +21,6 @@ public class UserRestController {
 	public User getUserDetails(@PathVariable Integer userId) {
 		System.out.println("Requested user id: " + userId);
 		User user = userRepository.findById(userId).get();
-		
 		return user;
 	}
 	
@@ -32,8 +31,8 @@ public class UserRestController {
 		return user;
 	}
 	
-	@PutMapping("/user/{userId}")
-	public User updateUser(@PathVariable Integer userId, @RequestBody User user) {
+	/*@PutMapping("/user/{userId}")
+	public User updateUserData(@PathVariable Integer userId, @RequestBody User user) {
 		
-	}
+	}*/
 }

@@ -8,12 +8,12 @@
 </head>
 <body>
 	<h2>BENVENUTO!</h2>
-	<form action="./anankeBook/logIn" method = "get">
+	<form action="./logIn" method = "get">
 		<label>Accedi o registrati al nostro portale</label><br><br>
 		<input type= "submit" value = "ACCEDI"></input>
 	</form>
 	<br><br>
-	<form action="./anankeBook/registration"  method = "get">
+	<form action="./register"  method = "get">
 		<input type= "submit" value = "REGISTRATI"></input>
 	</form>
 </body>

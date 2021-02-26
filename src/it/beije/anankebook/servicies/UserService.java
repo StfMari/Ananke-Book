@@ -18,4 +18,6 @@ public class UserService {
 	public User findByEmailAndPassword(String email, String password) {
 		return userRepository.findByEmailAndPassword(email, password);
 	}
+	
+	
 }

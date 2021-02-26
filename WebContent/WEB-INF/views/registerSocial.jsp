@@ -12,11 +12,13 @@
 		<p>Inserisci i tuoi dati per poterti <br> registrare al nostro sito di e-commerce</p>
 	</div>
 	
-	<form action="./registration" method = "post">
+	<form action="./register" method = "post">
 		<label for="name">First name:</label><br>
   		<input type="text" id="name" name="name" ><br>
  		<label for="surname">Last name:</label><br>
   		<input type="text" id="surname" name="surname"><br><br>
+  		<label for="username">Username:</label><br>
+  		<input type="text" id="username" name="username"><br><br>
   		<label for="email">Email:</label><br>
   		<input type="text" id="email" name="email" required><br><br>
   		<label for="password">Password:</label><br>
