@@ -15,6 +15,9 @@ import it.beije.anankebook.model.beans.User;
 public interface PostRepository extends JpaRepository<Post, Integer>{
 	
 	public Optional<Post> findById(Integer id);
-	//public List<Product> findProducts();
+	
+	public Optional<Post> findByUserId(Integer userId);
+	
+	//cerca i più recenti. dato un certo timestamp, prendo tutti i post con data e ora successivi ad esso
 	
 }
