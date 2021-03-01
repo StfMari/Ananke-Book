@@ -71,11 +71,12 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/friends", method = RequestMethod.POST)
-	public String friendList(@PathVariable Integer Id, HttpSession session) {
-		User u = (User) session.getAttribute("user");
-		List <User> friend = friendshipService.friendshipList(u.getId());
-		
+	public String friendList(@PathVariable Integer Id, Model model) {
+		List<User> friends = userService.userFriendsList(friendshipService.friendshipList(Id));
+		model.addAttribute("friends", friends);
+		// oppure user.getId ma uso la session?
 		return "FriendsList";
 	}
+
 	
 }
