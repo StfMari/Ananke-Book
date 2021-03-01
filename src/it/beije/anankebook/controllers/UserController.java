@@ -73,7 +73,7 @@ public class UserController {
 	public String friendList(@PathVariable Integer Id, Model model) {
 		List<User> friends = userService.getUserFriendsList(friendshipService.friendshipList(Id));
 		model.addAttribute("friends", friends);
-		// oppure user.getId ma uso la session?
+		
 		return "FriendsList";
 	}
 	
