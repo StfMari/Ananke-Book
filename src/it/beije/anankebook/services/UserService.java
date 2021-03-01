@@ -28,7 +28,7 @@ public class UserService {
 		return userRepository.findByEmailAndPassword(email, password);
 	}
 
-	public List<User> userFriendsList(List<Friendship> list){
+	public List<User> getUserFriendsList(List<Friendship> list){
 		List<User> friends = new ArrayList<>();
 		for(Friendship f: list) {
 			friends.add(userRepository.findById(f.getUserReceiverId()).get());

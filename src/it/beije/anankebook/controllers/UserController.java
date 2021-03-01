@@ -71,7 +71,7 @@ public class UserController {
 	
 	@RequestMapping(value = "/friends", method = RequestMethod.POST)
 	public String friendList(@PathVariable Integer Id, Model model) {
-		List<User> friends = userService.userFriendsList(friendshipService.friendshipList(Id));
+		List<User> friends = userService.getUserFriendsList(friendshipService.friendshipList(Id));
 		model.addAttribute("friends", friends);
 		// oppure user.getId ma uso la session?
 		return "FriendsList";

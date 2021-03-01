@@ -19,7 +19,6 @@ public class UserRestController {
 	@GetMapping("/user/{userId}")
 	public User getUserDetails(@PathVariable Integer userId) {
 		System.out.println("Requested user id: " + userId);
-		//User user = userRepository.findById(userId).get();
 		Optional<User> user = userService.findById(userId);
 		return user.get();
 	}
