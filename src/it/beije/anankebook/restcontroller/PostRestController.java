@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.beije.anankebook.repository.PostRepository;
-import it.beije.anankebook.servicies.PostService;
+import it.beije.anankebook.service.PostService;
 import it.beije.anankebook.model.beans.Post;
 import it.beije.anankebook.model.beans.User;
 

@@ -9,7 +9,7 @@ import it.beije.anankebook.model.beans.Friendship;
 import it.beije.anankebook.util.Status;
 
 @Repository
-public interface FrienshipRepository extends JpaRepository<Friendship, Integer>{
+public interface FriendshipRepository extends JpaRepository<Friendship, Integer>{
 
 	public List<Friendship> findByUserSenderId(Integer userSenderId);
 	
@@ -17,7 +17,7 @@ public interface FrienshipRepository extends JpaRepository<Friendship, Integer>{
 	
 	public Friendship findByUserReceiverIdAndUserSenderId(Integer userReceiverId, Integer userSenderId);
 
-	public List<Friendship> findByuserReceiverIdAndStatus(Integer userId, Status status);
+	public List<Friendship> findByUserReceiverIdAndStatus(Integer userId, Status status);
 
 	
 }
