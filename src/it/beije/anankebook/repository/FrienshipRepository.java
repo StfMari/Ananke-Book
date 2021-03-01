@@ -16,10 +16,10 @@ import it.beije.anankebook.model.beans.User;
 @Repository
 public interface FrienshipRepository extends JpaRepository<Friendship, Integer>{
 
-	public List<Friendship> findByUserSenderId(Integer userId);
+	public List<Friendship> findByUserSenderId(Integer userSenderId);
 	
-	public Friendship findByUserSenderIdAndUserReceiverId(Integer userId);
+	public Friendship findByUserSenderIdAndUserReceiverId(Integer userSenderId, Integer userReceiverId);
 	
-	public Friendship findByUserReceiverIdAndUserSenderId(Integer userId);
+	public Friendship findByUserReceiverIdAndUserSenderId(Integer userReceiverId, Integer userSenderId);
 	
 }

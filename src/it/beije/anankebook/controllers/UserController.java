@@ -21,7 +21,7 @@ import it.beije.anankebook.util.Mappings;
 public class UserController {
 
 	@Autowired
-	private UserService userService; 
+	private UserService userService;
 	
 	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
 	public String getIndex() {		

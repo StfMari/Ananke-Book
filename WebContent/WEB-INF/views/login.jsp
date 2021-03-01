@@ -17,10 +17,6 @@
 				height: fit-content;
 				border: 1px solid #dddfe2;
 			}
-			.labeldiv {
-				text-align:center;
-				margin: 10px;
-			}
 			.inputdiv {
 				text-align:center;
 				margin: 10px;
@@ -91,26 +87,19 @@
 		<title>Login to Ananke-Book</title>
 	</head>
 	<body>
-		<%@ include file="util/topnav.jsp"%>
 		<div>
 			<h1 id="t" class="title">Login</h1>
 		</div>
 		<div class="formdiv">
 			<form action="./homepage" method = "post">
 		  		<div class="inputdiv">
-		  			<div class="labeldiv">
-		  				<label class="inputLabel" for="username">Username/email</label>
-		  			</div>
 		  			<div class="inputdiv">
-		  				<input class="inputType" type="text" id="username" name="username">
+		  				<input class="inputType" type="text" id="username" name="username" placeholder="username/email">
 		  			</div>
 		  		</div>
 		  		<div class="inputdiv">
-		  			<div class="labeldiv">
-			  			<label class="inputLabel" for="password">Password</label>
-			  		</div>
 			  		<div class="inputdiv">
-			  			<input class="inputType" type="password" id="password" name="password" required>
+			  			<input class="inputType" type="password" id="password" name="password" placeholder="password" required>
 			  		</div>
 		  		</div>
 		  		<div class="submitdiv">
@@ -120,7 +109,7 @@
 			<div>Or</div>
 			<div class="submitdiv">
 		  		<button id="register">REGISTER</button>
-		  		<div id="myModal" class="popup">
+		  		<div id="registrationpopup" class="popup">
 				  <div class="modal-content">
 				    <span class="close">&times;</span>
 				    <div class="formdiv">
@@ -164,28 +153,28 @@
 		
 		<script type="text/javascript">
 			// Get the modal
-			var modal = document.getElementById("myModal");
+			var popup = document.getElementById("registrationpopup");
 	
 			// Get the button that opens the modal
-			var btn = document.getElementById("register");
+			var button = document.getElementById("register");
 	
 			// Get the <span> element that closes the modal
 			var span = document.getElementsByClassName("close")[0];
 	
 			// When the user clicks on the button, open the modal
-			btn.onclick = function() {
-			  modal.style.display = "block";
+			button.onclick = function() {
+			  popup.style.display = "block";
 			}
 	
 			// When the user clicks on <span> (x), close the modal
 			span.onclick = function() {
-			  modal.style.display = "none";
+			  popup.style.display = "none";
 			}
 	
 			// When the user clicks anywhere outside of the modal, close it
 			window.onclick = function(event) {
 			  if (event.target == modal) {
-			    modal.style.display = "none";
+			    popup.style.display = "none";
 			  }
 			}
 		</script>
