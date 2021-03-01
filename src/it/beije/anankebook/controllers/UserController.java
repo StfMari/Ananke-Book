@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -58,4 +59,18 @@ public class UserController {
 		userService.save(user);
 		return Views.LOGIN;
 	}
+	
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String update(User user) {
+		userService.save(user);
+		return "Home";
+	}
+	
+	@RequestMapping(value = "/friends", method = RequestMethod.POST)
+	public String update(@PathVariable Integer Id) {
+		
+		userService.showFriends(Id); // oppure user.getId ma uso la session?
+		return "FriendsList";
+	}
+	
 }
