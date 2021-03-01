@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import it.beije.anankebook.model.beans.User;
+import it.beije.anankebook.services.FriendshipService;
 import it.beije.anankebook.services.UserService;
 import it.beije.anankebook.util.Views;
 import it.beije.anankebook.util.Mappings;
@@ -22,6 +23,9 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private FriendshipService friendshipService;
 	
 	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
 	public String getIndex() {		
@@ -66,9 +70,10 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/friends", method = RequestMethod.POST)
-	public String update(@PathVariable Integer Id) {
-		
-		userService.showFriends(Id); // oppure user.getId ma uso la session?
+	public String friendList(@PathVariable Integer Id, Model model) {
+		List<User> friends = userService.userFriendsList(friendshipService.friendshipList(Id));
+		model.addAttribute("friends", friends);
+		// oppure user.getId ma uso la session?
 		return "FriendsList";
 	}
 	

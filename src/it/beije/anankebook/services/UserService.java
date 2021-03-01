@@ -27,14 +27,12 @@ public class UserService {
 		return userRepository.findByEmailAndPassword(email, password);
 	}
 
-	public List<Friendship> showFriends(Integer Id) {
-		return friendshipRepository.findByUserReceiverIdAndStatus(Id, Status.ACCEPTED);
-		
-	}	
-	
-	public List<Friendship> showRequests(Integer Id) {
-		return friendshipRepository.findByUserReceiverIdAndStatus(Id, Status.OPEN);
-		
-	}	
+	public List<User> userFriendsList(List<Friendship> list){
+		List<User> friends = new ArrayList<>();
+		for(Friendship f: list) {
+			friends.add(userRepository.findById(f.getUserReceiverId()).get());
+		}
+		return friends;
+	}
 
 }
