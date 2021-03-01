@@ -9,8 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import it.beije.anankebook.repository.UserRepository;
-import it.beije.anankebook.services.FriendshipService;
-import it.beije.anankebook.services.UserService;
+import it.beije.anankebook.service.FriendshipService;
+import it.beije.anankebook.service.UserService;
+import it.beije.anankebook.service.UserService;
 import it.beije.anankebook.model.beans.User;
 
 

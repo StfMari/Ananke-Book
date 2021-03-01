@@ -58,7 +58,8 @@ public class User {
 	
 	
 	public Integer getAge() {
-		return age;
+		LocalDate today = LocalDate.now();
+		return today.getYear() - this.getBirthday().getYear();
 	}
 	
 	
