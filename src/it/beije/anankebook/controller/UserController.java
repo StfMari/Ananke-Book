@@ -2,18 +2,20 @@ package it.beije.anankebook.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import it.beije.anankebook.model.beans.Friendship;
 import it.beije.anankebook.model.beans.User;
+import it.beije.anankebook.repository.UserRepository;
 import it.beije.anankebook.service.FriendshipService;
 import it.beije.anankebook.service.UserService;
 import it.beije.anankebook.util.Views;
@@ -26,6 +28,8 @@ public class UserController {
 	private FriendshipService friendshipService; 
 	@Autowired
 	private UserService userService; 
+	@Autowired
+	private UserRepository userRepository;
 	
 	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
 	public String getIndex() {		
@@ -76,6 +80,23 @@ public class UserController {
 		// oppure user.getId ma uso la session?
 		return "FriendsList";
 	}
+	
+	@RequestMapping(value = "/out", method = RequestMethod.POST)
+	public String logout(HttpServletRequest request, HttpSession session) {
+		session.invalidate();
+		return Views.LOGIN;
+	}
+	
+	@GetMapping("/user")
+	public User getUserDetails(@PathVariable String username) {
+		System.out.println("Requested user username: " + username);
+		User selectedUser = userRepository.findByUsername(username);
+		if(selectedUser != null) {
+			return selectedUser;
+		}
+		return null;
+	}
+
 
 	
 }

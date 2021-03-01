@@ -38,14 +38,17 @@
 		<a style="hover:none">AnankeBook</a>
  		<a href="./homepage">Homepage</a>
  		<c:choose>
-	 		<c:when test = "${userBean == null}">
+	 		<c:when test = "${user == null}">
 		 		<a href="./login">Login</a>
 	 		</c:when>
-	 		<c:when test = "${userBean != null}">
+	 		<c:when test = "${user != null}">
 		 		<a href="./logout">Logout</a>
 		 		<a href="./profile">Profile</a>
 		 		<a href="./news">News</a> <!-- questo bisogna definire il controller che mostra quante notifiche sono presenti -->
-		 		<a href="./search">Search</a> <!-- search for a friend, in future for a group or place or something else -->
+		 		<form action="./getUserDetails">
+		 			<input type="text">
+		 			<button type="submit">Search</button>
+		 		</form> <!-- search for a friend, in future for a group or place or something else -->
 	 		</c:when>
  		</c:choose>
 	</div>

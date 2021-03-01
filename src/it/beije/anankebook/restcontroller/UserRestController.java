@@ -17,12 +17,15 @@ public class UserRestController {
 	@Autowired
 	UserRepository userRepository;
 	
-	@GetMapping("/user/{userId}")
-	public User getUserDetails(@PathVariable Integer userId) {
-		System.out.println("Requested user id: " + userId);
-		User user = userRepository.findById(userId).get();
-		return user;
-	}
+//	@GetMapping("/user/{userId}")
+//	public User getUserDetails(@PathVariable String username) {
+//		System.out.println("Requested user username: " + username);
+//		User selectedUser = userRepository.findByUsername(username);
+//		if(selectedUser != null) {
+//			return selectedUser;
+//		}
+//		return null;
+//	}
 	
 	@PostMapping("/user")
 	public User registerUser(@RequestBody User user) {
