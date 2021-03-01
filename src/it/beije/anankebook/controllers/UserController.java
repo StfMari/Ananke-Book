@@ -2,6 +2,7 @@ package it.beije.anankebook.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,12 +28,12 @@ public class UserController {
 	private FriendshipService friendshipService; 
 	@Autowired
 	private UserService userService; 
-	
+
 	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
 	public String getIndex() {		
 		return Views.INDEX;
 	}
-	
+
 	@RequestMapping(value = "/" + Mappings.LOGIN, method = RequestMethod.POST)
 	public String login(@RequestParam String email, @RequestParam String password, Model model, HttpSession session) {
 		User user = userService.findByEmailAndPassword(email, password);
@@ -47,36 +48,43 @@ public class UserController {
 		//errore
 		return Views.LOGIN;
 	}
-	
+
 	@RequestMapping(value = {"/" + Mappings.LOGIN}, method = RequestMethod.GET)
 	public String login() {		
 		return Views.LOGIN;
 	}
-	
+
 	@RequestMapping(value = "/" + Mappings.REGISTER, method = RequestMethod.GET)
 	public String register() {		
 		return Views.REGISTER;
 	}
-	
+
 	@RequestMapping(value = "/" + Mappings.REGISTER, method = RequestMethod.POST)
 	public String register(User user) {
 		userService.save(user);
 		return Views.LOGIN;
 	}
-	
+
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String update(User user) {
 		userService.save(user);
 		return "Home";
 	}
-	
+
 	@RequestMapping(value = "/friends", method = RequestMethod.POST)
-	public String friendList(@PathVariable Integer Id, Model model) {
-		List<User> friends = userService.userFriendsList(friendshipService.friendshipList(Id));
+	public String friendList(HttpSession session, Model model) {
+		User u = (User) session.getAttribute("user");
+		List<User> friends = userService.userFriendsList(friendshipService.friendshipList(u.getId()));
 		model.addAttribute("friends", friends);
 		// oppure user.getId ma uso la session?
 		return "FriendsList";
 	}
-
 	
+	@RequestMapping(value = "/out", method = RequestMethod.POST)
+	public String logout(HttpServletRequest request, HttpSession session) {
+		session.invalidate();
+		return "logBoot";
+	}
+
+
 }
