@@ -38,10 +38,10 @@
 		<a style="hover:none">AnankeBook</a>
  		<a href="./homepage">Homepage</a>
  		<c:choose>
-	 		<c:when test = "${userId == null}">
+	 		<c:when test = "${userBean == null}">
 		 		<a href="./login">Login</a>
 	 		</c:when>
-	 		<c:when test = "${userId != null}">
+	 		<c:when test = "${userBean != null}">
 		 		<a href="./logout">Logout</a>
 		 		<a href="./profile">Profile</a>
 		 		<a href="./news">News</a> <!-- questo bisogna definire il controller che mostra quante notifiche sono presenti -->

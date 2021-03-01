@@ -1,7 +1,8 @@
-package it.beije.anankebook.controllers;
+package it.beije.anankebook.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,12 +31,14 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/" + Mappings.LOGIN, method = RequestMethod.POST)
-	public String login(@RequestParam String email, @RequestParam String password, Model model, HttpSession session) {
+	public String login(@RequestParam String email, @RequestParam String password, Model model, HttpServletRequest request) {
 		User user = userService.findByEmailAndPassword(email, password);
+		HttpSession session = request.getSession();
 		if(user != null) {
-			User userBean = (User)session.getAttribute("userBean");
+			User userBean = (User) session.getAttribute("user");
 			if (userBean == null) {
-				session.setAttribute("userBean", user);
+				session.setAttribute("user", user);
+				model.addAttribute(session.getAttribute("user"));
 			}	
 			//login
 			return Views.HOMEPAGE;

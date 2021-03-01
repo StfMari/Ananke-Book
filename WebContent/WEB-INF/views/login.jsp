@@ -37,15 +37,25 @@
 			    padding: 0 16px;
 			    width: 332px;
 			}
-			button {
+			.loginbutton {
 				align:center;
 				background-color: #1877f2;
 			    border: none;
 			    border-radius: 6px;
-			    font-size: 20px;
+			    font-size: 16px;
 			    line-height: 48px;
 			    padding: 0 16px;
-			    width: 332px;
+			    width: 250px;
+			}
+			.registerbutton {
+				align:center;
+				background-color: #1877f2;
+			    border: none;
+			    border-radius: 6px;
+			    font-size: 16px;
+			    line-height: 48px;
+			    padding: 0 16px;
+			    width: 150px;
 			}
 			/* The Modal (background) */
 			.popup {
@@ -91,10 +101,10 @@
 			<h1 id="t" class="title">Login</h1>
 		</div>
 		<div class="formdiv">
-			<form action="./homepage" method = "post">
+			<form action="./login" method = "post">
 		  		<div class="inputdiv">
 		  			<div class="inputdiv">
-		  				<input class="inputType" type="text" id="username" name="username" placeholder="username/email">
+		  				<input class="inputType" type="text" id="email" name="email" placeholder="email" required>
 		  			</div>
 		  		</div>
 		  		<div class="inputdiv">
@@ -103,12 +113,12 @@
 			  		</div>
 		  		</div>
 		  		<div class="submitdiv">
-		  			<button type="submit">LOGIN</button>
+		  			<button class="loginbutton" type="submit">LOGIN</button>
 	  			</div>
 			</form>
 			<div>Or</div>
 			<div class="submitdiv">
-		  		<button id="register">REGISTER</button>
+		  		<button class="registerbutton" id="register">REGISTER</button>
 		  		<div id="registrationpopup" class="popup">
 				  <div class="modal-content">
 				    <span class="close">&times;</span>
