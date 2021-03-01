@@ -7,6 +7,7 @@
 <title>Ananke-Book</title>
 </head>
 <body>
+	<%@ include file="util/topnav.jsp"%>
 	<h2>BENVENUTO!</h2>
 	<form action="./login" method = "get">
 		<label>Accedi o registrati al nostro portale</label><br><br>
