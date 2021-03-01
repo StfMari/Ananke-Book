@@ -13,8 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import it.beije.anankebook.model.beans.User;
-import it.beije.anankebook.servicies.UserService;
-
+import it.beije.anankebook.services.UserService;
 import it.beije.anankebook.util.Views;
 import it.beije.anankebook.util.Mappings;
 

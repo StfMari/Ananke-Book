@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import it.beije.anankebook.repository.UserRepository;
+import it.beije.anankebook.services.UserService;
 import it.beije.anankebook.model.beans.User;
-import it.beije.anankebook.servicies.UserService;
 
 
 @RestController
@@ -31,10 +31,4 @@ public class UserRestController {
 		return user;
 	}
 	
-	@PutMapping("modify/user/{userId}")
-	public User updateUserData(@PathVariable Integer userId, @RequestBody User user) {
-		System.out.println("Updated user: " + user);
-		userService.save(user);
-		return user;
-	}
 }
