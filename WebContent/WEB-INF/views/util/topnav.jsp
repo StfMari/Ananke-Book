@@ -35,6 +35,7 @@
 	</head>
 	<body>
 		<div class="topnav">
+		<a style="hover:none">AnankeBook</a>
  		<a href="./homepage">Homepage</a>
  		<c:choose>
 	 		<c:when test = "${userId == null}">
@@ -44,6 +45,7 @@
 		 		<a href="./logout">Logout</a>
 		 		<a href="./profile">Profile</a>
 		 		<a href="./news">News</a> <!-- questo bisogna definire il controller che mostra quante notifiche sono presenti -->
+		 		<a href="./search">Search</a> <!-- search for a friend, in future for a group or place or something else -->
 	 		</c:when>
  		</c:choose>
 	</div>
