@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import it.beije.anankebook.model.beans.Friendship;
 import it.beije.anankebook.model.beans.User;
 import it.beije.anankebook.servicies.UserService;
 
@@ -67,9 +68,10 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/friends", method = RequestMethod.POST)
-	public String update(@PathVariable Integer Id) {
+	public String update(@PathVariable Integer Id, HttpSession session) {
+		User u = (User) session.getAttribute("user");
+		List <Friendship> friend = userService.showFriends(u.getId());
 		
-		userService.showFriends(Id); // oppure user.getId ma uso la session?
 		return "FriendsList";
 	}
 	
