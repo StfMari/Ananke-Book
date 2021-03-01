@@ -31,8 +31,10 @@ public class UserRestController {
 		return user;
 	}
 	
-	/*@PutMapping("/user/{userId}")
+	@PutMapping("modify/user/{userId}")
 	public User updateUserData(@PathVariable Integer userId, @RequestBody User user) {
-		
-	}*/
+		System.out.println("Updated user: " + user);
+		userService.save(user);
+		return user;
+	}
 }
