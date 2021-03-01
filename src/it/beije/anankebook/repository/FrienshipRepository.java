@@ -15,8 +15,11 @@ import it.beije.anankebook.model.beans.User;
 
 @Repository
 public interface FrienshipRepository extends JpaRepository<Friendship, Integer>{
-//	@Query(nativeQuery = true, value = "SELECT * FROM user WHERE user_id = :userId  AND state = :state")
-//	public ArrayList<Friendship> findByUserIdAndState(@Param(value = "userId") Integer userId,@Param(value = "state") String state);
+
+	public List<Friendship> findByUserSenderId(Integer userId);
 	
+	public Friendship findByUserSenderIdAndUserReceiverId(Integer userId);
+	
+	public Friendship findByUserReceiverIdAndUserSenderId(Integer userId);
 	
 }

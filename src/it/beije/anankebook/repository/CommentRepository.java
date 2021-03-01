@@ -17,15 +17,8 @@ import it.beije.anankebook.model.beans.Comment;
 @Repository
 public interface CommentRepository extends JpaRepository<Comment, Integer>{	
 
+	public List<Comment> findByPostId(Integer postId);
 	
-	
-	
-//	@Query(nativeQuery = true, value = "SELECT * FROM Order_item WHERE order_id = :orderId  AND product_id = :productId")
-//	public Comment findByOrderIdAndProductId(@Param(value = "orderId") Integer orderId,@Param(value = "productId") Integer productId);
-//
-//
-//	@Query(nativeQuery = true, value = "SELECT * FROM Order_item AND Orders WHERE order_id = :orderId")
-//	public ArrayList<Comment> findByOrderId(@Param(value = "orderId") Integer orderId);
-
+	//metodo che tira fuori i commenti per un singolo post, e con la data e ora che soddisfa dei parametri
 
 }
