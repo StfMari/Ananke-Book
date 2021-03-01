@@ -52,7 +52,7 @@
 			    width: 332px;
 			}
 			/* The Modal (background) */
-			.modal {
+			.popup {
 				  display: none; /* Hidden by default */
 				  position: fixed; /* Stay in place */
 				  z-index: 1; /* Sit on top */
@@ -120,7 +120,7 @@
 			<div>Or</div>
 			<div class="submitdiv">
 		  		<button id="register">REGISTER</button>
-		  		<div id="myModal" class="modal">
+		  		<div id="myModal" class="popup">
 				  <div class="modal-content">
 				    <span class="close">&times;</span>
 				    <div class="formdiv">
