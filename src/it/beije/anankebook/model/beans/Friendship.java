@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import it.beije.anankebook.util.Status;
+
 @Entity
 @Table(name="friendship")
 public class Friendship {
@@ -17,7 +19,7 @@ public class Friendship {
 	Integer id;
 	
 	@Column(name="status")
-	String status;
+	Status status;
 	
 	@Column(name="user1_id")
 	Integer userSenderId;
@@ -30,18 +32,17 @@ public class Friendship {
 		return id;
 	}
 	
-	
 	public void setId(Integer id) {
 		this.id = id;
 	}
 	
 	
-	public String getStatus() {
+	public Status getStatus() {
 		return status;
 	}
 	
 	
-	public void setStatus(String status) {
+	public void setStatus(Status status) {
 		this.status = status;
 	}
 	
