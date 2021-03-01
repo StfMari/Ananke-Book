@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import it.beije.anankebook.repository.UserRepository;
-import it.beije.anankebook.services.UserService;
+import it.beije.anankebook.service.UserService;
 import it.beije.anankebook.model.beans.User;
 
 
@@ -19,8 +19,8 @@ public class UserRestController {
 	@GetMapping("/user/{userId}")
 	public User getUserDetails(@PathVariable Integer userId) {
 		System.out.println("Requested user id: " + userId);
-		Optional<User> user = userService.findById(userId);
-		return user.get();
+		return userService.findById(userId);
+		 
 	}
 	
 	@PostMapping("/user")

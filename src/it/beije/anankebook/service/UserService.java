@@ -1,4 +1,4 @@
-package it.beije.anankebook.services;
+package it.beije.anankebook.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,16 +28,17 @@ public class UserService {
 		return userRepository.findByEmailAndPassword(email, password);
 	}
 
-	public List<User> getUserFriendsList(List<Friendship> list){
+	public List<User> userFriendsList(List<Friendship> list){
 		List<User> friends = new ArrayList<>();
 		for(Friendship f: list) {
 			friends.add(userRepository.findById(f.getUserReceiverId()).get());
 		}
 		return friends;
 	}
+
 	public User findById(Integer userId) {
-		
-		return userRepository.findById(userId).get();
+		Optional<User> user = userRepository.findById(userId);
+		return user.get();
 	}
 
 }

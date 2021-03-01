@@ -1,4 +1,4 @@
-package it.beije.anankebook.controllers;
+package it.beije.anankebook.controller;
 
 import java.util.List;
 
@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import it.beije.anankebook.model.beans.Friendship;
 import it.beije.anankebook.model.beans.User;
 import it.beije.anankebook.service.FriendshipService;
-import it.beije.anankebook.services.UserService;
+import it.beije.anankebook.service.UserService;
 import it.beije.anankebook.util.Views;
 import it.beije.anankebook.util.Mappings;
 
@@ -22,23 +23,22 @@ import it.beije.anankebook.util.Mappings;
 public class UserController {
 
 	@Autowired
-	private UserService userService;
-	
+	private FriendshipService friendshipService; 
 	@Autowired
-	private FriendshipService friendshipService;
+	private UserService userService; 
 	
 	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
 	public String getIndex() {		
-		return Views.INDEX;
+		return Views.LOGIN;
 	}
 	
 	@RequestMapping(value = "/" + Mappings.LOGIN, method = RequestMethod.POST)
 	public String login(@RequestParam String email, @RequestParam String password, Model model, HttpSession session) {
 		User user = userService.findByEmailAndPassword(email, password);
 		if(user != null) {
-			User userBean = (User)session.getAttribute("userBean");
+			User userBean = (User)session.getAttribute("user");
 			if (userBean == null) {
-				session.setAttribute("userBean", user);
+				session.setAttribute("user", user);
 			}	
 			//login
 			return Views.HOMEPAGE;
@@ -71,10 +71,11 @@ public class UserController {
 	
 	@RequestMapping(value = "/friends", method = RequestMethod.POST)
 	public String friendList(@PathVariable Integer Id, Model model) {
-		List<User> friends = userService.getUserFriendsList(friendshipService.friendshipList(Id));
+		List<User> friends = userService.userFriendsList(friendshipService.friendshipList(Id));
 		model.addAttribute("friends", friends);
-		
+		// oppure user.getId ma uso la session?
 		return "FriendsList";
 	}
+
 	
 }
