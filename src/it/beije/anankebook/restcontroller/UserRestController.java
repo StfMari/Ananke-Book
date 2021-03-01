@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import it.beije.anankebook.repository.UserRepository;
-import it.beije.anankebook.services.UserService;
+import it.beije.anankebook.service.UserService;
 import it.beije.anankebook.model.beans.User;
 
 

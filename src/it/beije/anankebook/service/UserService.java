@@ -1,4 +1,4 @@
-package it.beije.anankebook.services;
+package it.beije.anankebook.service;
 
 import java.util.ArrayList;
 import java.util.List;

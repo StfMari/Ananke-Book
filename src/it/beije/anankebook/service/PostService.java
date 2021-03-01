@@ -1,4 +1,4 @@
-package it.beije.anankebook.services;
+package it.beije.anankebook.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
