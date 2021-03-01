@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(value = {"it.beije.anankebook"})
+@EnableJpaRepositories(value = {"it.beije.anankebook.repository"})
 public class ConfigurationClass {
 	
     @Primary

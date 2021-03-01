@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import it.beije.anankebook.model.beans.Friendship;
 import it.beije.anankebook.model.beans.User;
-import it.beije.anankebook.servicies.UserService;
+import it.beije.anankebook.services.FriendshipService;
+import it.beije.anankebook.services.UserService;
 
 import it.beije.anankebook.util.Views;
 import it.beije.anankebook.util.Mappings;
@@ -22,6 +23,8 @@ import it.beije.anankebook.util.Mappings;
 @Controller
 public class UserController {
 
+	@Autowired
+	private FriendshipService friendshipService; 
 	@Autowired
 	private UserService userService; 
 	
@@ -68,9 +71,9 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/friends", method = RequestMethod.POST)
-	public String update(@PathVariable Integer Id, HttpSession session) {
+	public String friendList(@PathVariable Integer Id, HttpSession session) {
 		User u = (User) session.getAttribute("user");
-		List <Friendship> friend = userService.showFriends(u.getId());
+		List <User> friend = friendshipService.friendshipList(u.getId());
 		
 		return "FriendsList";
 	}
