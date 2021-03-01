@@ -140,7 +140,7 @@
 					  			<input class="inputType" type="password" placeholder="password" id="password" name="password" required>	
 					  		</div>
 					  		<div class="inputdiv">
-					  			<input class="inputType" type="date" placeholder="birthday" id="birthday" name="birthdate" required>	
+					  			<input class="inputType" type="date" placeholder="birthday" id="birthday" name="birthday" required>	
 					  		</div>
 					  		<div class="inputdiv">
 						  		<select class="inputType" name="nationality" id="nationality" style="width:150px" required>
