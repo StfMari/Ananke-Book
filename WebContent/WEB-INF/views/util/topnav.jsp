@@ -10,12 +10,12 @@
 		<style>
 			.topnav {
 				overflow: hidden;
-				background-color: #333;
+				background-color: #ffee00;
 			}
 			
 			.topnav a {
 				float: left;
-				color: #f2f2f2;
+				color: black;
 				text-align: center;
 				padding: 14px 16px;
 				text-decoration: none;
@@ -38,10 +38,10 @@
 		<a style="hover:none">AnankeBook</a>
  		<a href="./homepage">Homepage</a>
  		<c:choose>
-	 		<c:when test = "${userId == null}">
+	 		<c:when test = "${userBean == null}">
 		 		<a href="./login">Login</a>
 	 		</c:when>
-	 		<c:when test = "${userId != null}">
+	 		<c:when test = "${userBean != null}">
 		 		<a href="./logout">Logout</a>
 		 		<a href="./profile">Profile</a>
 		 		<a href="./news">News</a> <!-- questo bisogna definire il controller che mostra quante notifiche sono presenti -->

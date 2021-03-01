@@ -30,16 +30,16 @@ public class UserController {
 	
 	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
 	public String getIndex() {		
-		return Views.INDEX;
+		return Views.LOGIN;
 	}
 	
 	@RequestMapping(value = "/" + Mappings.LOGIN, method = RequestMethod.POST)
 	public String login(@RequestParam String email, @RequestParam String password, Model model, HttpSession session) {
 		User user = userService.findByEmailAndPassword(email, password);
 		if(user != null) {
-			User userBean = (User)session.getAttribute("userBean");
+			User userBean = (User)session.getAttribute("user");
 			if (userBean == null) {
-				session.setAttribute("userBean", user);
+				session.setAttribute("user", user);
 			}	
 			//login
 			return Views.HOMEPAGE;
