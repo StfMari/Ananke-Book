@@ -26,6 +26,12 @@
 			padding: 20px 0;
 			font-size: 30px;
 		}
+		
+		textarea {
+ 			width: 30%;
+ 			height: 120px;
+		}
+		
 	</style>
 <meta charset="ISO-8859-1">
 <title>HomePage</title>
@@ -34,8 +40,8 @@
 	<%@ include file="util/topnav.jsp"%>
 	<div class="grid-container">
 		<div class="item1">
-			<input type="text" placeholder="${user.username} a che cosa stai pensando?">
-		 
+		 	<textarea id="post" name="post" cols="40" rows="5" placeholder="${user.username} a che cosa stai pensando?"></textarea>
+		 	<button class="button" type="submit" onclick="post('post')">POSTA</button>
 		</div>
 		<div class="item2">Menu</div>
 		<div class="item3">
@@ -44,6 +50,19 @@
 		<div class="item4">Right</div>
 	</div>
 	<script>
+		function post(postId){
+			fetch("http:///Ananke-Book/login/publishpost", {
+				method: 'PUT',
+				body: JSON.stringify({
+				  userId: ${user.id},
+				  content: document.getElementById('postId').innerHTML(),
+				  date: new Date()}
+				}),
+				headers: {
+				  "Content-type": "application/json; charset=UTF-8"
+				}
+			  })
+		}
 	</script>
 </body>
 </html>

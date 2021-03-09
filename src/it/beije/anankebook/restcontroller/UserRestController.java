@@ -1,15 +1,25 @@
 package it.beije.anankebook.restcontroller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import it.beije.anankebook.repository.UserRepository;
+import it.beije.anankebook.service.FriendshipService;
+import it.beije.anankebook.service.UserService;
 import it.beije.anankebook.service.UserService;
 import it.beije.anankebook.model.beans.User;
 
 
 @RestController
 public class UserRestController {
+	
+	@Autowired
+	private FriendshipService friendshipService; 
 	
 	@Autowired
 	UserService userService;
@@ -30,5 +40,14 @@ public class UserRestController {
 		userService.save(user);
 		return user;
 	}
+	
+	@PostMapping("/RequestFriends")
+	public User requestFriends(@RequestBody User user, @PathVariable Integer Id, Model model, HttpSession session) {
+		User u = (User) session.getAttribute("user");
+		List<User> friends = userService.userFriendsList(friendshipService.requestList(u.getId()));
+		model.addAttribute("friends", friends);
+		return user;
+	}
+	
 	
 }
